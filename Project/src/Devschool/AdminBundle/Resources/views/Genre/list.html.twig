@@ -1,0 +1,16 @@
+{# src\Devschool\AdminBundle\Resources\views\Genre\list.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Liste des genres :</h1>
+    <hr>
+    <ul>
+        {% for genre in genres %}
+            <li>
+                <a href="{{ path('admin_genre_modif', {'id': genre.id}) }}">{{ genre.nom }}</a>
+                <a class="btn btn-danger float-right" href="{{ path('admin_genre_supprimer', {'id': genre.id}) }}">Supprimer</a>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-info center-block" href="{{ path('admin_genre_ajout') }}">Ajouter</a>
+{% endblock %}

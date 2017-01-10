@@ -1,0 +1,17 @@
+{# src\Devschool\AdminBundle\Resources\views\Film\list.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Liste des films :</h1>
+    <hr>
+    <ul>
+        {% for film in films %}
+            <li>
+                <a href="{{ path('admin_film_modif', {'id': film.id}) }}">{{ film.titre }}</a>
+                <a class="btn btn-danger float-right" href="{{ path('admin_film_supprimer', {'id': film.id}) }}">Supprimer</a>
+            </li>
+                <hr>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-info center-block" href="{{ path('admin_film_ajout') }}">Ajouter</a>
+{% endblock %}

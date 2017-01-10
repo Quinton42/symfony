@@ -1,0 +1,16 @@
+{# src\Devschool\AdminBundle\Resources\views\Genre\form.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Formulaire Genre :</h1>
+
+    {{ form_start(form, { 'attr': {'class': 'form-horizontal'} }) }}
+    <div class="form-group">
+    {{ form_label(form.nom, 'Nom du Genre :', { 'label_attr': {'class': 'col-sm-2 control-label label-x2'} }) }}
+        <div class="col-sm-8">{{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }} </div>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+    </div>
+    {{ form_end(form) }}
+
+    <br />
+    <a class="btn btn-default" href="{{ path('admin_genre_liste') }}">Retour</a>
+{% endblock %}

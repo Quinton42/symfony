@@ -1,0 +1,37 @@
+{# src\Devschool\AdminBundle\Resources\views\Film\form.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Formulaire Film :</h1>
+    {{ form_start(form, { 'attr': {'class': 'form-horizontal'} }) }}
+    <div class="form-group">
+    {{ form_label(form.titre , 'Titre du Film :', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+    {{ form_widget(form.titre, { 'attr': {'class': ' form-control'} }) }}
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+    {{ form_label(form.synopsis, 'Synopsis :', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+        {{ form_widget(form.synopsis, { 'attr': {'class': ' form-control'} }) }}<br />
+    </div>
+        <br />
+    <div class="form-group">
+    {{ form_label(form.realisateur, 'Réalisateur :', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+    {{ form_widget(form.realisateur, { 'attr': {'class': ' form-control'} }) }}<br />
+        <a class="btn btn-info float-right" href="{{ path('admin_realisateur_ajout') }}">(Ajouter un réalisateur) </a>
+
+    </div>
+    <br />
+    <div class="form-group">
+    {{ form_label(form.genre, 'Genre :', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+    {{ form_widget(form.genre, { 'attr': {'class': ' form-control'} }) }}<br />
+        <a class="btn btn-info float-right" href="{{ path('admin_genre_ajout') }}">(Ajouter un genre) </a>
+    </div>
+        <br />
+    <div class="form-group">
+    {{ form_label(form.dateSortie, 'Date de réalisation:', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+    {{ form_widget(form.dateSortie, { 'choice_attr': {'class': 'form-control text-color-black'} }) }}<br />
+    </div>
+    {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success center-block'} }) }}
+    {{ form_end(form) }}
+    <p><a href="{{ path('admin_film_liste') }}">Retour</a></p>
+{% endblock %}

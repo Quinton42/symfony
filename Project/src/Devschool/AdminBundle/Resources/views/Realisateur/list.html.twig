@@ -1,0 +1,16 @@
+{# src\Devschool\AdminBundle\Resources\views\Realisateur\list.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Liste des realisateurs :</h1>
+    <hr>
+    <ul>
+        {% for realisateur in realisateurs %}
+            <li>
+                <a href="{{ path('admin_realisateur_modif', {'id': realisateur.id}) }}">{{ realisateur.nom }}</a>
+                <a class="btn btn-danger float-right" href="{{ path('admin_realisateur_supprimer', {'id': realisateur.id}) }}">Supprimer</a>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-info center-block" href="{{ path('admin_realisateur_ajout') }}">Ajouter</a>
+{% endblock %}

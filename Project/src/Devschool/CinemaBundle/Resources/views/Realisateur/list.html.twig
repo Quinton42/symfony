@@ -1,0 +1,41 @@
+{# src\Devschool\CinemaBundle\Resources\views\Realisateur\list.html.twig #}
+{% extends 'DevschoolCinemaBundle::layout.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+    <div class="col-md-3">
+        <p class="lead">{{ titre }}</p>
+        <div class="list-group">
+            <a href="{{ path('page_films') }}" class="list-group-item">Films</a>
+            <a href="{{ path('page_realisateurs') }}" class="list-group-item active">Réalisateurs</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+
+        <h2>Liste des realisateurs</h2>
+
+        <br />
+        {% for realisateur in realisateurs %}
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <strong>{{ realisateur.nom }}</strong>
+                        <br />
+                                <p>{{ realisateur.bio }}</p>
+                                <hr />
+                                <div class="text-right">
+                                    <a href="{{ path('page_realisateur', {'id': realisateur.id}) }}" class="btn btn-success">Voir ses films</a>
+                                </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+

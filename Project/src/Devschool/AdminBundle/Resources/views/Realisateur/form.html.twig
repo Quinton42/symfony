@@ -1,0 +1,23 @@
+{# src\Devschool\AdminBundle\Resources\views\Film\form.html.twig #}
+{% extends 'DevschoolAdminBundle::layout.html.twig' %}
+{% block body %}
+    <h1>Formulaire realisateur :</h1>
+    {{ form_start(form, { 'attr': {'class': 'form-horizontal'} }) }}
+    <div class="form-group">
+    {{ form_label(form.nom, 'Nom du réalisateur :', { 'label_attr': {'class': ' control-label label-x2'} }) }}
+        {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}<br />
+    </div>
+    <br />
+    <div class="form-group">
+    {{ form_label(form.bio, 'Bio du réalisateur :', { 'label_attr': {'class': 'control-label label-x2'} }) }}
+    {{ form_widget(form.bio, { 'attr': {'class': ' form-control'} }) }}<br />
+    </div>
+    <br />
+    <div class="form-group">
+    {{ form_label(form.dateNaissance, 'Date de naissance:', { 'label_attr': {'class': 'control-label label-x2'} }) }}
+    {{ form_widget(form.dateNaissance, { 'choice_attr': {'class': ' form-control'} }) }}<br />
+    </div>
+    {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success center-block'} }) }}
+    {{ form_end(form) }}
+    <p><a href="{{ path('admin_film_liste') }}">Retour</a></p>
+{% endblock %}
